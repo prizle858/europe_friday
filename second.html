@@ -16,25 +16,35 @@
 
     <script>
         var labels = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
-        var highestTemp = [0,0,0,0,0,0,0,0,0,0,0,0]
-        var lowestTemp = [0,0,0,0,0,0,0,0,0,0,0,0]
+        var highestTemp = [5,10,13,21,26,33,34,30,23,19,10,6]
+        var lowestTemp = [-10,0,1,8,11,15,17,18,7,5,-2,-10]
+        var avgPrecip = [33,30,28,24,26,33,34,35,30,31,34,36]
     </script>
     <!-- Draw Chart script -->
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'line',
+            lineColor: "rgba(255,0,0,1)", //also not working
             data: {
                 labels: labels,
                 datasets: [{
                     backgroundColor: "rgba(0,0,0,0)",
                     label: "최고기온",
-                    data: highestTemp
+                    data: highestTemp,
+                    lineColor: "rgba(255,0,0,1)", //this is not working
                 },
                 {
                     backgroundColor: "rgba(0,0,0,0)",
                     label: "최저기온",
-                    data: lowestTemp
+                    data: lowestTemp,
+                    lineColor: "rgba(0,0,255,1)", //this is not working
+                },
+                {
+                    backgroundColor: "rgba(0,0,0,0)",
+                    label: "강우량",
+                    data: avgPrecip,
+                    lineColor: "rgba(0,255,0,1)", //this is not working
                 }]
             },
             options: {
